@@ -3,7 +3,7 @@
 
 <div id="demo"></div>
 
-<script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+<script src="http://yui.yahooapis.com/3.16.0/build/yui/yui-min.js"></script>
 <script>
 YUI.add('hello', function (Y) {
 
@@ -20,7 +20,7 @@ YUI.add('hello', function (Y) {
 
 }, '0.0.1', {requires: ['node-base']});
 
-YUI().use('hello', function (Y) {
-    Y.Hello.sayHello(Y.one('#demo'));
+YUI().use('hello', function (X) {
+    X.Hello.sayHello(X.one('#demo'));
 });
 </script>

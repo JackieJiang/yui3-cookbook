@@ -2,16 +2,18 @@
 <title>Loading Modules Based on Browser Capabilities</title>
 
 <div id="demo"></div>
+<p/>
+<div id="ddd"></div>
 
-<script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+<script src="http://yui.yahooapis.com/3.16.0/build/yui/yui-min.js"></script>
 <script>
 YUI({
     modules: {
         'suitcase': {
-            fullpath: 'suitcase.js' 
+            fullpath: 'suitcase.js'
         },
         'suitcase-legacy': {
-            fullpath: 'suitcase-legacy.js', 
+            fullpath: 'suitcase-legacy.js',
             condition: {
                 trigger: 'suitcase',
                 test: function () {
@@ -22,12 +24,13 @@ YUI({
                     }
                 }
             },
-            requires: ['suitcase', 'cookie'] 
+            requires: ['suitcase', 'cookie']
         }
     }
 }).use('node', 'suitcase', function (Y) {
     var type = Y.Cookie ? 'battered, legacy' : 'sleek, ultra-modern';
-    Y.Suitcase.set('foo', 'bar');
+    Y.Suitcase.set('foo', 'bar1');
     Y.one('#demo').setHTML('In your ' + type + ' suitcase: ' + Y.Suitcase.get('foo'));
 });
+
 </script>
