@@ -2,7 +2,7 @@
 var YUI_config = {
     groups: {
         'local-modules': {
-            base: '/js/BOGUS_PATH',
+            base: 'js/BOGUS_PATH',
             modules: {
                 'reptiles-core': {
                     path: 'reptiles-core/reptiles-core.js',
