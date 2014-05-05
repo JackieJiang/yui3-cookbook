@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<title>Creating a Draggable Node</title>
+<style>
+#demo { width: 100px; height: 100px; border: 1px #000 solid; background: #d72; }
+</style>
+
+<div id="demo"></div>
+
+<script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+<script>
+YUI({gallery: 'gallery-2010.10.15-19-32'}).use('gallery-svg', function(Y) {
+
+// =======================================================
+// Animation extensions:
+// - support SVG specific attributes (transform here)
+// - add easier animation synchronization and time offsets
+//
+// Other SVG attributes can be animated, see the full test
+// page for more examples.
+// =======================================================
+var Easing = Y.Easing;
+var anim = new Y.Animate({
+            node: '#translate',
+            from: {transform: {tx: 0, ty: 0}},
+            to: {transform: {tx: 100, ty: 0}},
+            transformTemplate: "translate(#tx, #ty)",
+            easing: Easing.easeIn,
+            duration: 1
+        });
+
+// Start animation with a 0.5s delay
+anim.run(0.5);
+
+// Other animation
+var anim2 = new Y.Animate({
+            node: "#translate",
+            from: {fill: 'crimson'},
+            to: {fill: 'gold'},
+            duration: 0.5
+});
+
+anim.onEnd(anim2, 0.25); // Start anim2 0.25s after anim ends
+
+// =======================================================
+// Misc extensions:
+// - support SVG specific attributes and properties
+// - additional DOM convenience methods for manipulating SVG
+//   bounding boxes
+// - additional DOM convenience methods for loading DOM
+// fragments.
+// - support for the play method on media elements
+// =======================================================
+
+var myGroup = Y.one("#myGroup");
+
+// Get / set the computed SVG 'fill' paint
+var groupFill = myGroup.getStyle('fill');
+myGroup.setStyle('fill', 'crimson');
+
+// Get / set the computed SVG 'stroke-width' value
+var groupStrokeWidth = myGroup.getStyle('stroke-width');
+myGroup.setStyle('stroke-width', '5');
+
+// Get / set the circle radius
+var circleRadius = Y.one('#myCircle').get('r');
+Y.one('#myCircle').set('r', 20);
+
+// Get the group's bounding box
+var bbox = myGroup.getBBox();
+
+// Load a DOM fragment
+myGroup.loadContent({
+        tag: 'rect',
+        x: bbox.x -5,
+        y: bbox.y -5,
+        width: bbox.width + 10,
+        height: bbox.height + 10,
+        stroke: 'gray',
+        fill: 'none'
+});
+
+// Play audio
+Y.one("#myAudioTrack").play();
+});
+</script>
