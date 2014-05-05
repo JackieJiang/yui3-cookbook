@@ -7,8 +7,8 @@
 <script>
 YUI().use('io-base', 'node-base', function (Y) {
     var ol = Y.one("#candy_report");
-    
-    Y.io('candy_store.php', { 
+
+    Y.io('candy_store.php', {
         data: 'candy=licorice',
         on: {
             start: function (id) {
@@ -23,16 +23,16 @@ YUI().use('io-base', 'node-base', function (Y) {
             failure: function (id, response) {
                 var msg;
                 switch(response.status) {
-                    case 402: 
+                    case 402:
                         msg = 'Turns out, we have no candy money.';
                         break;
-                    case 403: 
+                    case 403:
                         msg = 'Mom said no candy. Oh, well.';
                         break;
-                    case 404: 
+                    case 404:
                         msg = 'Cannot find the store. Are you sure there is one?';
                         break;
-                    default: 
+                    default:
                         msg = 'Could not obtain candy. ' + response.statusText;
                 }
                 ol.append('<li style="color: red">Oh no! ' + msg + ' :( </li>');

@@ -15,12 +15,12 @@
 <input type="submit" value="Who dunnit?">
 </form>
 <p id="answer">Scotland Yard says...</p>
-    
+
 <script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
 <script>
 YUI().use('io-form', 'json-parse', function (Y) {
     function submitForm(ev) {
-        ev.preventDefault();     
+        ev.preventDefault();
         Y.io('io.php', {
             method: 'GET',
             form: { id: Y.one('#form') },

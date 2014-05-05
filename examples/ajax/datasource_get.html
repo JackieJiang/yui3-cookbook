@@ -9,7 +9,7 @@
 YUI().use('datasource-get', 'node-base', function (Y) {
     var src = 'https://api.github.com/repos/douglascrockford/JSLint/issues?state=closed',
         dataSource = new Y.DataSource.Get({ source: src });
-    
+
     function displayIssues(rsp) {
         var issues = rsp.response.results[0].data,
             template = '<li><a href="{html_url}">{id}</a> {title}</li>',

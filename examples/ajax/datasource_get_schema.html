@@ -9,7 +9,7 @@
 YUI().use('datasource-get', 'datasource-jsonschema', 'node-base', function (Y) {
     var src = 'https://api.github.com/repos/douglascrockford/JSLint/issues?state=closed',
         dataSource = new Y.DataSource.Get({ source: src });
-    
+
     function displayIssues(rsp) {
         var issues = rsp.response.results,
             template = '<li><a href="{html_url}">{id}</a> {title}</li>',
@@ -18,18 +18,18 @@ YUI().use('datasource-get', 'datasource-jsonschema', 'node-base', function (Y) {
             ol.append(Y.Lang.sub(template, issue));
         });
     }
-    
+
     dataSource.plug(Y.Plugin.DataSourceJSONSchema, {
         schema: {
             resultListLocator: 'data',
             resultFields: ['html_url', 'id', 'title']
         }
     });
-    
-    dataSource.sendRequest({ 
+
+    dataSource.sendRequest({
         on: {
             success: displayIssues
-        } 
+        }
     });
 });
 </script>

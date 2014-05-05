@@ -15,15 +15,15 @@
 <script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
 <script>
 YUI().use('jsonp', 'node-base', function (Y) {
-        
+
     Y.one('button').on('click', function (ev) {
         var user = Y.one('#username').get('value'),
             url = 'http://vimeo.com/api/v2/' + user + '/info.json?callback={callback}';
-                
+
         Y.jsonp(url, function (response) {
             var template = '<div class="user"><img src="{portrait_medium}">'
                 + '<h2><a href="{profile_url}">{display_name}</a> ({location})</h2>'
-                + '<p>{bio}</p>' 
+                + '<p>{bio}</p>'
                 + '<p>Videos Uploaded: {total_videos_uploaded}</p></div>'
 
             Y.one('#demo').setHTML(Y.Lang.sub(template, response));

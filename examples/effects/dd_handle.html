@@ -7,11 +7,12 @@
 
 <div id="demo"><p>handle</p></div>
 
+
 <script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
 <script>
 YUI().use('dd-drag', function (Y) {
-    var dd = new Y.DD.Drag({ 
-        node: '#demo', 
+    var dd = new Y.DD.Drag({
+        node: '#demo',
         handles: ['p']
     });
 });

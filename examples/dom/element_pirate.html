@@ -7,21 +7,21 @@
 <script>
 YUI().use('node', function (Y) {
     var demo = Y.one('#demo');
-        
+
     Y.Node.ATTRS.pirate = {
         getter: function() {
             var normalText = this.get('text'),
-                pirateMap = {'hello':'ahoy', 'my':'me', 'the':"th'", 
+                pirateMap = {'hello':'ahoy', 'my':'me', 'the':"th'",
                     'you':'ye', 'to':"t'", 'is':'be', 'talk':"be talkin'"},
                 pirateText = normalText.replace(/\b\w*\b/g, function (word) {
                     return pirateMap[word] || word;
                 });
-            
+
             return pirateText + ' Arrrr!';
         }
     };
-    
-    demo.setHTML('It is fun to talk like a pirate!');    
+
+    demo.setHTML('It is fun to talk like a pirate!');
     demo.setHTML(demo.get('pirate'));
 });
 </script>

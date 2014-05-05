@@ -13,7 +13,7 @@ YUI().use('datasource-local', 'node-base', function (Y) {
         { 'id': 1920535, 'html_url':'#', 'title':'Filtering the body of a "for in" loop' }
     ];
     var dataSource = new Y.DataSource.Local({ source: src });
-    
+
     function displayIssues(rsp) {
         var issues = rsp.response.results,
             template = '<li><a href="{html_url}">{id}</a> {title}</li>',
@@ -22,7 +22,7 @@ YUI().use('datasource-local', 'node-base', function (Y) {
             ol.append(Y.Lang.sub(template, issue));
         });
     }
-    
+
     dataSource.sendRequest({
         on: {
             success: displayIssues

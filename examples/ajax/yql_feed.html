@@ -6,11 +6,11 @@
 YUI().use('yql', 'node-base', function (Y) {
     var url   = 'http://gdata.youtube.com/feeds/base/users/yuilibrary/uploads?alt=rss',
         query = 'select * from feed where url="' + url + '"';
-        
+
     Y.YQL(query, function (response) {
         var ol     = Y.Node.create('<ol/>'),
             videos = response.query.results.item;
-        
+
         Y.Array.each(videos, function (video) {
             ol.append('<li><a href="' + video.link + '">' + video.title + '</a></li>');
         });

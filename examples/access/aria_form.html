@@ -18,7 +18,7 @@ p.error   { background: #ecc; color: red;   border: 1px solid red; }
 YUI().use('node-base', function (Y) {
     var quiz  = Y.one('#quiz'),
         input = Y.one('#capital');
-    
+
     quiz.on('submit', function (ev) {
         var answer = ev.target.get('capital').get('value');
         ev.preventDefault();
@@ -29,14 +29,14 @@ YUI().use('node-base', function (Y) {
             showErrorMessage();
         }
     });
-    
+
     function isValid(answer) {
         return Y.Lang.trim(answer).toLowerCase() === 'sacramento';
     }
-    
+
     function showErrorMessage() {
         var error = 'Wrong! Maybe you should just look it up on Wikipedia.';
-        
+
         if (! input.hasAttribute('aria-invalid')) {
             input.setAttribute('aria-invalid', 'true');
             input.setAttribute('aria-describedby', 'err-capital');
